@@ -1,6 +1,33 @@
--- ================================================
--- Wolf Survey Exploratory Data Analysis (EDA)
--- ================================================
+/* =============================================================================
+   Wolf Survey – Exploratory Data Analysis (EDA)
+   -----------------------------------------------------------------------------
+   Context
+   - Dataset: Cleaned staging table from wolf-attitudes survey (cross-sectional
+     by year; multiple target groups such as Land, Deer, GenPop, Wolf).
+   - Goal: Produce quick, reproducible EDA summaries on tolerance, hunting views,
+     trust, and value orientations, comparing across years and groups.
+
+   Assumptions
+   - MySQL 8.0+ (CTEs + window functions available).
+   - `survey_staging2` is de-duplicated and standardized (see cleaning script).
+   - Likert-like items (e.g., Q3, Q6, Q13, Q14) are coded numerically.
+
+   Deliverables
+   - Response counts by year/group
+   - Tolerance distributions and ranks (Q3)
+   - Tolerance toward hunting by group (Q6)
+   - Mutualist vs. Utilitarian composition by year
+   - Pivot-style trust summary (Q13) by group across years
+   - Yearly value-orientation score summaries with rank
+   - Top-5 most tolerant groups in the latest year
+
+   Skills Used
+   - Window functions (RANK), aggregate stats (AVG, MIN, MAX, STD)
+   - CTEs to stage intermediate summaries
+   - Conditional aggregation (CASE WHEN) for pivot-like outputs
+   - Group-wise filtering (HAVING) for sample-size thresholds
+   - Temporary tables for ad hoc ranking outputs
+   ============================================================================ */
 
 select*
 from survey_staging2;
