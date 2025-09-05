@@ -1,4 +1,33 @@
--- Wolf Survey Data Cleaning
+/* =============================================================================
+   Wolf Survey – Data Cleaning Pipeline
+   -----------------------------------------------------------------------------
+   Context
+   - Dataset: Longitudinal wildlife attitudes survey (wolves), random cross-section
+     across years; not panel (IDNOs can recur across years/groups).
+   - Goal: Create a de-duplicated, standardized staging table suitable for analysis
+     and weighting by removing duplicate rows, normalizing key text fields, and
+     dropping helper columns used during cleaning.
+
+   Assumptions
+   - MySQL 8.0+ (CTEs and window functions available).
+   - Duplicates are defined as rows sharing the same (IDNO, year, `group`).
+   - Keep the first occurrence within each duplicate set (ROW_NUMBER() = 1).
+   - `survey_data` is the immutable raw table; staging tables are safe to create.
+
+   Deliverables
+   - survey_staging: raw copy of survey_data for safe manipulation.
+   - survey_staging2: de-duplicated and standardized working table.
+
+   Skills Used
+   - Data engineering workflow: raw → staging → cleaned staging
+   - Window functions: ROW_NUMBER() OVER (PARTITION BY …)
+   - Common Table Expressions (CTEs) for duplicate inspection
+   - De-duplication strategy design & implementation
+   - Text normalization (TRIM, harmonizing categorical labels)
+   - NULL handling & record hygiene (ID integrity checks)
+   - Schema definition for curated staging (explicit column types)
+   - Reproducible, documented SQL with guardrails and sanity checks
+   ============================================================================ */
 
 select*
 from survey_data;
