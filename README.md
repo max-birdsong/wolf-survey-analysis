@@ -271,7 +271,7 @@ Rscript scripts/R/03_plots_longitudinal.R
 
 **Max Birdsong, PhD**  
 📧 maxbirdsong1221@gmail.com  
-🔗 [Portfolio](https://max-birdsong.github.io) | [LinkedIn](#) | [GitHub](https://github.com/max-birdsong)
+🔗 [Portfolio](https://max-birdsong.github.io)
 
 ---
 
@@ -285,10 +285,4 @@ This code is provided for transparency and reproducibility. Survey data are conf
 
 - Montana Fish, Wildlife & Parks (project sponsor)
 - Survey respondents (1,758 Montana residents)
-- [Any collaborators/advisors]
 
----
-
-**Citation:**  
-If you use this code or findings in your work, please cite:  
-> Birdsong, M. (2024). *Wolf Survey Analysis: Longitudinal Tolerance Trends in Montana (2012–2023)*. GitHub repository. https://github.com/max-birdsong/wolf-survey-analysis
